@@ -7,7 +7,7 @@ import './login.css'
 const Login = () => {
 
     if(checkAuth()){
-        return <Navigate to='/' />
+        return <Navigate to='/profile' />
     }
 
     return (

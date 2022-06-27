@@ -28,7 +28,7 @@ const Form = ({type}) => {
     }
 
     const onLoginHandler = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
 
         const data = await dispatch(fetchLogin({email, password}));
         if(!data.payload){

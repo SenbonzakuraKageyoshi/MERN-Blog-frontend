@@ -11,10 +11,11 @@ export const fetchLogin = createAsyncThunk('auth/Login', async (params) => {
     return data;
 });
 
-// export const fetchMe = createAsyncThunk('auth/Me', async () => {
-//     const { data } = await  axios.get('http://localhost:5000/auth/me')
-//     return data;
-// });
+export const fetchMe = createAsyncThunk('auth/Me', async () => {       
+    const token = localStorage.getItem('token');
+    const { data } = await axios.post('http://localhost:5000/auth/me', {token})
+    return data;
+});
 
 const initialState = {
     data: null,
@@ -47,6 +48,18 @@ const authSlice = createSlice({
             state.loading = 'loaded'
         },
         [fetchLogin.rejected]: (state) => {
+            state.data = null;
+            state.loading = 'loaded'
+        },
+        [fetchMe.pending]: (state) => {
+            state.data = null;
+            state.loading = 'loading'
+        },
+        [fetchMe.fulfilled]: (state, action) => {
+            state.data = action.payload;
+            state.loading = 'loaded'
+        },
+        [fetchMe.rejected]: (state) => {
             state.data = null;
             state.loading = 'loaded'
         },

@@ -7,7 +7,7 @@ import './signup.css'
 const Signup = () => {
 
     if(checkAuth()){
-        return <Navigate to='/' />
+        return <Navigate to='/profile' />
     }
 
     return (
