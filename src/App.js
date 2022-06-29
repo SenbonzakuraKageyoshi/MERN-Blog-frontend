@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
-import Home from './pages/Home/Home';
+import Intro from './pages/Intro/Intro';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
-import Profile from './pages/Profile/Profile';
+import ProfileInfo from './pages/ProfileInfo/ProfileInfo';
 import AddPost from './pages/AddPost/AddPost';
+import Sidebar from './components/Sidebar/Sidebar';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 import { fetchMe } from './redux/auth/auth';
@@ -27,11 +28,46 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path='/' element={!auth.data && !token ? <Home /> : <Profile />} />
-      <Route path='/login' element={!auth.data && !token ? <Login /> : <Profile />} />
-      <Route path='/signup' element={!auth.data && !token ? <Signup /> : <Profile />}/>
-      <Route path='/profile' element={!auth.data && !token ? <Login /> : <Profile />} />
-      <Route path='/add-post' element={!auth.data && !token ? <Login /> : <AddPost />} />
+      <Route path='/' element={!auth.data && !token ? <Intro /> : 
+      <outlet className="outlet">
+        <Sidebar/>
+        <div className='content-flex'>
+        <ProfileInfo />
+        </div>
+      </outlet>
+      } />
+      <Route path='/login' element={!auth.data && !token ? <Login /> :
+      <outlet className="outlet">
+      <Sidebar/>
+      <div className='content-flex'>
+      <ProfileInfo />
+      </div>
+      </outlet>
+      } />
+      <Route path='/signup' element={!auth.data && !token ? <Signup /> : 
+      <outlet className="outlet">
+      <Sidebar/>
+      <div className='content-flex'>
+      <ProfileInfo />
+      </div>
+      </outlet>
+      }/>
+      <Route path='/profile' element={!auth.data && !token ? <Login /> :
+      <outlet className="outlet">
+      <Sidebar/>
+      <div className='content-flex'>
+      <ProfileInfo />
+      </div>
+      </outlet>
+      } />
+      <Route path='/add-post' element={!auth.data && !token ? <Login /> :
+      <outlet className="outlet">
+      <Sidebar/>
+      <div className='content-flex'>
+      <AddPost />
+      </div>
+      </outlet>
+      } />
     </Routes>
   );
 }

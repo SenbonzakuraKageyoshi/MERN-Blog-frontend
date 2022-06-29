@@ -2,9 +2,9 @@ import React from 'react';
 import LinkBtn from '../../components/LinkBtn/LinkBtn';
 import Users from '../../../src/images/icons/users.svg';    
 import Blog from '../../../src/images/icons/blog.svg';
-import './home.css'
+import './intro.css'
 
-const Home = () => {
+const Intro = () => {
     return (
         <section className='homepage'>
             <div className="container">
@@ -25,4 +25,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Intro;

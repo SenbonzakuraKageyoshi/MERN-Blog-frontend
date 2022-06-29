@@ -360,3 +360,14 @@ template {
   max-width: 1220px;
   margin: 0 auto;
 }
+
+.outlet{
+  display: flex;
+}
+
+.content-flex{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
