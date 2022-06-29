@@ -36,10 +36,10 @@ const AddPost = () => {
     return (
         <form className='post-form' onSubmit={handleSubmit(onSubmit)}>
             <input type="text" {...register('title', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 4, message: 'Название не может быть более 4х символов'}})} className="form-input" name='title' placeholder='Title' onChange={(e) => setTitle(e.target.value)} value={title}/>
-            <div>{errors?.title && <p>{errors.title.message}</p>}</div>
-            <input type="text" {...register('text', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 4, message: 'Текст не может быть более 4х символов'}, maxLength: {value: 120, message: 'Текст не может быть более 120ти символов'}})} className="form-input" name='text' placeholder='Text' value={text} onChange={(e) => setText(e.target.value)}/>
-            <div>{errors?.text && <p>{errors.text.message}</p>}</div>
-            <button className="send-fom-btn">Add</button>
+            <div className='error-text'>{errors?.title && <p>{errors.title.message}</p>}</div>
+            <textarea type="text" {...register('text', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 4, message: 'Текст не может быть более 4х символов'}, maxLength: {value: 120, message: 'Текст не может быть более 120ти символов'}})} className="form-input text" name='text' placeholder='Text' value={text} onChange={(e) => setText(e.target.value)}/>
+            <div className='error-text'>{errors?.text && <p>{errors.text.message}</p>}</div>
+            <button className="send-fom-btn">Add post</button>
         </form>
     );
 }

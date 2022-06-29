@@ -11,4 +11,20 @@
 
 .user-info{
     text-align: center;
+    font-family: 'Montserrat';
+}
+
+.user-email{
+    margin-top: 10px;
+}
+
+.logout{
+    margin-top: 20px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 12px;
+    background: rgb(230, 33, 33);
+    color: #fff;
+    font-family: 'Montserrat';
 }

@@ -3,7 +3,7 @@ import Intro from './pages/Intro/Intro';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import ProfileInfo from './pages/ProfileInfo/ProfileInfo';
-import AddPost from './pages/AddPost/AddPost';
+import AddPost from './components/AddPost/AddPost';
 import Sidebar from './components/Sidebar/Sidebar';
 import PostsList from './components/PostsList/PostsList';
 import { Routes, Route } from 'react-router-dom';

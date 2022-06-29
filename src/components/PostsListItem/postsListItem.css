@@ -3,6 +3,7 @@
     border: 2px solid #5FA5F8;
     border-radius: 12px;
     padding: 10px;
+    font-family: 'Montserrat';
 }
 
 .posts__list-item:not(:first-child){

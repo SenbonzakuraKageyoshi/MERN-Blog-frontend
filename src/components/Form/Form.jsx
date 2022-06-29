@@ -44,11 +44,11 @@ const Form = ({type}) => {
         return (
             <form className='form' onSubmit={handleSubmit(onRegisterHandler)}>
                 <input type="text" {...register('Name', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 3, message: 'Имя не может быть менее 3х символов'}, maxLength: {value: 13, message: 'Имя не может быть более 13ти символов'}})} className="form-input" name='Name' placeholder='Nickname' value={name} onChange={(e) => setName(e.target.value)} />
-                <div>{errors?.Name && <p>{errors.Name.message}</p>}</div>
+                <div className='error-text'>{errors?.Name && <p>{errors.Name.message}</p>}</div>
                 <input type="text" {...register('Email', {required: {value: true, message: 'Поле обязательно к заполнению'}})} className="form-input" name='Email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
-                <div>{errors?.Email && <p>{errors.Email.message}</p>}</div>
+                <div className='error-text'>{errors?.Email && <p>{errors.Email.message}</p>}</div>
                 <input type="text" {...register('Password', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 6, message: 'Пароль не может быть менее 6ти символов'}})} className="form-input" name='Password' placeholder='Password'value={password} onChange={(e) => setPassword(e.target.value)} />
-                <div>{errors?.Password && <p>{errors.Password.message}</p>}</div>
+                <div className='error-text'>{errors?.Password && <p>{errors.Password.message}</p>}</div>
                 <button className="send-form-btn signup" type="submit">Sign Up</button>
             </form>
         );
@@ -56,9 +56,9 @@ const Form = ({type}) => {
         return (
             <form className='form' onSubmit={handleSubmit(onLoginHandler)}>
                 <input type="text" {...register('Email', {required: {value: true, message: 'Поле обязательно к заполнению'}})} className="form-input" name='Email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
-                <div>{errors?.Email && <p>{errors.Email.message}</p>}</div>
+                <div className='error-text'>{errors?.Email && <p>{errors.Email.message}</p>}</div>
                 <input type="text" {...register('Password', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 6, message: 'Пароль не может быть менее 6ти символов'}})} className="form-input" name='Password' placeholder='Password'value={password} onChange={(e) => setPassword(e.target.value)} />
-                <div>{errors?.Password && <p>{errors.Password.message}</p>}</div>
+                <div className='error-text'>{errors?.Password && <p>{errors.Password.message}</p>}</div>
                 <button className="send-form-btn login" type="submit">Log In</button>
             </form>
         );

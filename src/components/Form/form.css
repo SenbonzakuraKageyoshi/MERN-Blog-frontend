@@ -4,9 +4,28 @@
     height: 25px;
     border-radius: 8px;
     border: 2px solid #5FA5F8;
-    padding-left: 10px;
     margin: 0 auto;
     margin-top: 20px;
+}
+
+.form{
+    font-family: 'Montserrat';
+}
+
+.signup-title{
+    font-family: 'Montserrat';
+}
+
+.error-text{
+    font-family: 'Montserrat';
+    margin-left: 36px;
+    font-size: 13px;
+    margin-top: 3px;
+    color: red;
+}
+
+.login-title{
+    font-family: 'Montserrat';
 }
 
 .send-form-btn.login{
