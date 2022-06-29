@@ -25,7 +25,12 @@ const initialState = {
 const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {},
+    reducers: {
+        logout: (state) => {
+            localStorage.removeItem('token');
+            state.data = null;
+        }
+    },
     extraReducers: {
         [fetchRegister.pending]: (state) => {
             state.data = null;
@@ -68,4 +73,4 @@ const authSlice = createSlice({
 
 export const authReducer = authSlice.reducer;
 
-export const { } = authSlice.actions
+export const { logout } = authSlice.actions;

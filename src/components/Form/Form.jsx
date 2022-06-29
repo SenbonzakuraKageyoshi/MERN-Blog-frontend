@@ -30,8 +30,9 @@ const Form = ({type}) => {
 
     const onLoginHandler = async () => {
         const data = await dispatch(fetchLogin({email, password}));
-        if(!data.payload){
-            alert('Не удалось войти')
+        if(!data.payload || data.payload.message === 'Пользователь не найден'){
+            console.log('Не удалось войти');
+            return;
         }else{
             localStorage.setItem('token', data.payload.token)
             navigate('/')

@@ -17,6 +17,7 @@ const App = () => {
 
   const auth = useSelector((state) => state.auth);
   const token = localStorage.getItem('token');
+  console.log(auth)
 
   const fetchUser = async () => {
     const { data } = await dispatch(fetchMe());
@@ -29,7 +30,7 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path='/' element={!auth.data && !token ? <Intro /> : 
+      <Route path='/' element={!auth.data && !token || auth.data && "message" in auth.data  ? <Intro /> : 
       <outlet className="outlet">
         <Sidebar/>
         <div className='content-flex'>
@@ -37,7 +38,7 @@ const App = () => {
         </div>
       </outlet>
       } />
-      <Route path='/login' element={!auth.data && !token ? <Login /> :
+      <Route path='/login' element={!auth.data && !token || auth.data && "message" in auth.data  ? <Login /> :
       <outlet className="outlet">
       <Sidebar/>
       <div className='content-flex'>
@@ -45,7 +46,7 @@ const App = () => {
       </div>
       </outlet>
       } />
-      <Route path='/signup' element={!auth.data && !token ? <Signup /> : 
+      <Route path='/signup' element={!auth.data && !token || auth.data && "message" in auth.data ? <Signup /> : 
       <outlet className="outlet">
       <Sidebar/>
       <div className='content-flex'>
@@ -53,7 +54,7 @@ const App = () => {
       </div>
       </outlet>
       }/>
-      <Route path='/profile' element={!auth.data && !token ? <Login /> :
+      <Route path='/profile' element={!auth.data && !token || auth.data && "message" in auth.data  ? <Login /> :
       <outlet className="outlet">
       <Sidebar/>
       <div className='content-flex'>
@@ -61,7 +62,7 @@ const App = () => {
       </div>
       </outlet>
       } />
-      <Route path='/add-post' element={!auth.data && !token ? <Login /> :
+      <Route path='/add-post' element={!auth.data && !token || auth.data && "message" in auth.data  ? <Login /> :
       <outlet className="outlet">
       <Sidebar/>
       <div className='content-flex'>
@@ -69,7 +70,7 @@ const App = () => {
       </div>
       </outlet>
       } />
-      <Route path='/posts' element={!auth.data && !token ? <Login /> :
+      <Route path='/posts' element={!auth.data && !token || auth.data && "message" in auth.data ? <Login /> :
       <outlet className="outlet">
       <Sidebar/>
       <div className='content'>

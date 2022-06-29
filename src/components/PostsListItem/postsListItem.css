@@ -5,6 +5,10 @@
     padding: 10px;
 }
 
+.posts__list-item:not(:first-child){
+    margin-top: 20px;
+}
+
 .posts__list-item__info{
     display: flex;
     align-items: center;
