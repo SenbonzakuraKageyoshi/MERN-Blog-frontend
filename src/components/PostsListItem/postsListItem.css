@@ -1,0 +1,17 @@
+.posts__list-item{
+    width: 400px;
+    border: 2px solid #5FA5F8;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.posts__list-item__info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.posts__list-item-text{
+    margin-top: 20px;
+}

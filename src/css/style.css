@@ -371,3 +371,8 @@ template {
   align-items: center;
   flex-direction: column;
 }
+
+.content{
+  padding-top: 60px;
+  margin-left: 60px;
+}
