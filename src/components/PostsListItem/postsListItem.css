@@ -4,9 +4,6 @@
     border-radius: 12px;
     padding: 10px;
     font-family: 'Montserrat';
-}
-
-.posts__list-item:not(:first-child){
     margin-top: 20px;
 }
 
@@ -19,4 +16,10 @@
 
 .posts__list-item-text{
     margin-top: 20px;
+}
+
+.posts__list-item-title{
+    font-size: 22px;
+    text-decoration: none;
+    color: #000;
 }

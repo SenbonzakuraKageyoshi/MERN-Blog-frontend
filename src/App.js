@@ -6,6 +6,7 @@ import ProfileInfo from './pages/ProfileInfo/ProfileInfo';
 import AddPost from './components/AddPost/AddPost';
 import Sidebar from './components/Sidebar/Sidebar';
 import PostsList from './components/PostsList/PostsList';
+import FullPost from './components/FullPost/FullPost';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 import { fetchMe } from './redux/auth/auth';
@@ -74,7 +75,23 @@ const App = () => {
       <outlet className="outlet">
       <Sidebar/>
       <div className='content'>
-      <PostsList />
+      <PostsList isMyPosts={false}/>
+      </div>
+      </outlet>
+      } />
+      <Route path='/posts/:id' element={!auth.data && !token || auth.data && "message" in auth.data ? <Login /> :
+      <outlet className="outlet">
+      <Sidebar/>
+      <div className='content'>
+      <FullPost />
+      </div>
+      </outlet>
+      } />
+      <Route path='/my-posts' element={!auth.data && !token || auth.data && "message" in auth.data ? <Login /> :
+      <outlet className="outlet">
+      <Sidebar/>
+      <div className='content'>
+      <PostsList isMyPosts={true} />
       </div>
       </outlet>
       } />
