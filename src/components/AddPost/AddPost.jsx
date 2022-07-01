@@ -27,7 +27,6 @@ const AddPost = () => {
         if(!data.payload){
             alert('Не удалось войти')
         }else{
-            localStorage.setItem('token', data.payload.token)
             navigate('/posts')
         };
         console.log(data)

@@ -13,7 +13,7 @@ export const fetchLogin = createAsyncThunk('auth/Login', async (params) => {
 
 export const fetchMe = createAsyncThunk('auth/Me', async () => {       
     const token = localStorage.getItem('token');
-    const { data } = await axios.post('http://localhost:5000/auth/me', {token})
+    const { data } = await axios.post('http://localhost:5000/auth/me', {token}) 
     return data;
 });
 

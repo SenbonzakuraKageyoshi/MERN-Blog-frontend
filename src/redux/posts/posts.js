@@ -1,4 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { current } from "@reduxjs/toolkit";
+import { removePost } from "./postsActions";
 import axios from "axios";
 
 export const fetchPosts = createAsyncThunk('posts/posts', async () => {
@@ -24,7 +26,13 @@ const initialState = {
 const postsSlice = createSlice({
     name: 'posts',
     initialState,
-    reducers: {},
+    reducers: {
+        deletePost: (state, action) => {
+            const {data} = state;
+            const normalData = current(data)
+            state.data = normalData.filter((item) => item._id !== action.payload);
+        }
+    },
     extraReducers: {
         [fetchPosts.pending]: (state, action) => {
             state.loading = 'loading';
@@ -53,4 +61,4 @@ const postsSlice = createSlice({
 
 export const postsReducer = postsSlice.reducer;
 
-export const { } = postsSlice.actions
+export const { deletePost } = postsSlice.actions

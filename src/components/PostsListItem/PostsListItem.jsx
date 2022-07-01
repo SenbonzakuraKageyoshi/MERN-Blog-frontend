@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deletePost } from '../../redux/posts/posts';
 import axios from 'axios';
 import './postsListItem.css';
 
 const PostsListItem = ({id, title, text, createdAt, author, views, isMyPosts}) => {
     
+    const dispatch = useDispatch();
     const onDeleteHanlder = () => {
-        axios.post('http://localhost:5000/posts/delete', {id});
-    }
+        axios.post('http://localhost:5000/posts/delete', {id})
+        .then(dispatch(deletePost(id)));
+    };  
 
     return (
         <li className="posts__list-item">
