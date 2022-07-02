@@ -29,7 +29,7 @@ const PostsList = ({isMyPosts}) => {
             <h1 className="posts-title">Posts</h1>
             <ul className='posts__list'>
                 {data.map((post) => (
-                    <PostsListItem isMyPosts={isMyPosts} key={post._id} id={post._id} title={post.title} views={post.views} text={post.text} createdAt={post.createdAt} author={post.author}/>
+                    <PostsListItem isMyPosts={isMyPosts} imageUrl={post.imageUrl} key={post._id} id={post._id} title={post.title} views={post.views} text={post.text} createdAt={post.createdAt} author={post.author}/>
                 ))}
             </ul>
             </>

@@ -26,9 +26,6 @@ const Sidebar = () => {
                         <li className="sidebar-nav__list-item"> 
                             <Link to="/posts" className='sidebar-nav__list-link'>Posts</Link>
                         </li>
-                        <li className="sidebar-nav__list-item"> 
-                            <Link to="/liked-posts" className='sidebar-nav__list-link'>Liked posts</Link>
-                        </li>
                     </ul>
                 </nav>
             </aside>

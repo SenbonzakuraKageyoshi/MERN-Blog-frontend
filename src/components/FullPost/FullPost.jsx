@@ -15,6 +15,14 @@ const FullPost = () => {
     if(post){
         return (
             <div className="post">
+                {post.imageUrl
+                ? 
+                <div className="post-img">
+                    <img src={`http://localhost:5000${post.imageUrl}`} alt="" className="post-preview" />
+                </div>
+                :
+                null
+                }
                 <h1 className="posts__list-item-title">{post.title}</h1>
                 <p className="posts__list-item-text">{post.text}</p>
                 <div className="posts__list-item__info">
