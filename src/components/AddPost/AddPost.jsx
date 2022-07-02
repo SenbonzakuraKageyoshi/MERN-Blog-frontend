@@ -32,7 +32,6 @@ const AddPost = () => {
         }else{
             navigate('/posts')
         };
-        console.log(data)
     }
 
     const handleChangeFile = async (event) => {
@@ -41,10 +40,8 @@ const AddPost = () => {
           const file = event.target.files[0];
           formData.append('image', file); 
           const { data } = await axios.post('http://localhost:5000/upload', formData);
-          console.log(data.url);
           setImageUrl(data.url);
         }catch(err){
-          console.log(err)
           alert('Ошибка при получении файла')
         }
       };
@@ -64,11 +61,11 @@ const AddPost = () => {
             <div className='error-text'>{errors?.title && <p>{errors.title.message}</p>}</div>
             <textarea type="text" {...register('text', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 4, message: 'Текст не может быть более 4х символов'}, maxLength: {value: 120, message: 'Текст не может быть более 120ти символов'}})} className="form-input text" name='text' placeholder='Text' value={text} onChange={(e) => setText(e.target.value)}/>
             <div className='error-text'>{errors?.text && <p>{errors.text.message}</p>}</div>
-            {imageUrl ? null : <button onClick={() => inputFileRef.current.click()} type="button">Загрузить изображение</button>}
+            {imageUrl ? null : <button onClick={() => inputFileRef.current.click()} type="button" className='form-add-img'>Загрузить изображение</button>}
             <input type="file" onChange={handleChangeFile} hidden ref={inputFileRef}/>
             {imageUrl && (
                 <>
-                <button onClick={onClickRemoveImage}>Удалить</button>
+                <button onClick={onClickRemoveImage} className="form-remove-img">Удалить</button>
                 <img className='uploaded-img' src={`http://localhost:5000${imageUrl}`} alt="Uploaded" width={200} height={200}/>
                 </>
             )}

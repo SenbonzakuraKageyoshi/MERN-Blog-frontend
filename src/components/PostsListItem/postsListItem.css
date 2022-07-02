@@ -3,8 +3,8 @@
     border: 2px solid #5FA5F8;
     border-radius: 12px;
     padding: 10px;
-    font-family: 'Montserrat';
     margin-top: 20px;
+    position: relative;
 }
 
 .post-preview{
@@ -29,4 +29,17 @@
     font-size: 22px;
     text-decoration: none;
     color: #000;
+}
+
+.post-actions{
+    position: absolute;
+    bottom: 90px;
+    right: 10px;
+}
+
+.delete-post{
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
 }

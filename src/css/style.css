@@ -354,7 +354,9 @@ template {
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat';
 }
+
 
 .container{
   max-width: 1220px;
@@ -363,14 +365,25 @@ template {
 
 .outlet{
   display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .content-flex{
-  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 60px;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.content-center{
+  max-width: 100%;
+  padding-top: 60px;
+  margin-left: 60px;
+  margin: 0 auto;
 }
 
 .content{

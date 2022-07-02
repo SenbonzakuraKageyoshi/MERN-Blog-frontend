@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux/es/exports';
 import { fetchRegister, fetchLogin } from '../../redux/auth/auth';
-import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './form.css'
 
 const Form = ({type}) => {
@@ -25,19 +25,17 @@ const Form = ({type}) => {
             localStorage.setItem('token', data.payload.token)
             navigate('/')
         };
-        console.log(data)
     }
 
     const onLoginHandler = async () => {
         const data = await dispatch(fetchLogin({email, password}));
         if(!data.payload || data.payload.message === 'Пользователь не найден'){
-            console.log('Не удалось войти');
+            alert('Не удалось войти');
             return;
         }else{
             localStorage.setItem('token', data.payload.token)
             navigate('/')
         };
-        console.log(data)
     }
 
     if(type === 'signup'){
@@ -50,6 +48,7 @@ const Form = ({type}) => {
                 <input type="text" {...register('Password', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 6, message: 'Пароль не может быть менее 6ти символов'}})} className="form-input" name='Password' placeholder='Password'value={password} onChange={(e) => setPassword(e.target.value)} />
                 <div className='error-text'>{errors?.Password && <p>{errors.Password.message}</p>}</div>
                 <button className="send-form-btn signup" type="submit">Sign Up</button>
+                <Link to="/login" className="send-form-btn login" type="submit">Or Log In</Link>
             </form>
         );
     }else{
@@ -60,6 +59,7 @@ const Form = ({type}) => {
                 <input type="text" {...register('Password', {required: {value: true, message: 'Поле обязательно к заполнению'}, minLength: {value: 6, message: 'Пароль не может быть менее 6ти символов'}})} className="form-input" name='Password' placeholder='Password'value={password} onChange={(e) => setPassword(e.target.value)} />
                 <div className='error-text'>{errors?.Password && <p>{errors.Password.message}</p>}</div>
                 <button className="send-form-btn login" type="submit">Log In</button>
+                <Link to="/signup" className="send-form-btn signup" type="submit">Or Sing Up</Link>
             </form>
         );
     }

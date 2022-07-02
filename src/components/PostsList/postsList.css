@@ -3,8 +3,9 @@
     height: 900px;
     overflow-y: auto;
     overflow-x: hidden;
+    position: relative;
 }
 
-.posts-title{
-    font-family: 'Montserrat';
+.posts-message{
+    color: #5FA5F8;
 }

@@ -18,13 +18,13 @@ const Sidebar = () => {
                 <nav className="sidebar-nav">
                     <ul className="sidebar-nav__list">
                         <li className="sidebar-nav__list-item"> 
+                            <Link to="/posts" className='sidebar-nav__list-link'>Posts</Link>
+                        </li>
+                        <li className="sidebar-nav__list-item"> 
                             <Link to="/my-posts" className='sidebar-nav__list-link'>My posts</Link>
                         </li>
                         <li className="sidebar-nav__list-item"> 
                             <Link to="/add-post" className='sidebar-nav__list-link'>Add posts</Link>
-                        </li>
-                        <li className="sidebar-nav__list-item"> 
-                            <Link to="/posts" className='sidebar-nav__list-link'>Posts</Link>
                         </li>
                     </ul>
                 </nav>

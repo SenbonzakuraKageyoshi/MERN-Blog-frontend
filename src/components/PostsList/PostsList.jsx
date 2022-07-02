@@ -11,7 +11,6 @@ const PostsList = ({isMyPosts}) => {
     const dispatch = useDispatch();
     const {data, loading} = useSelector(state => state.posts);
     const userData = useSelector(state => state.auth.data);
-    console.log(data)
 
     useEffect(() => {
         if(isMyPosts && userData){
@@ -26,7 +25,7 @@ const PostsList = ({isMyPosts}) => {
     if(loading === 'loaded' && data !== null && data.length > 0){
         return (
             <>
-            <h1 className="posts-title">Posts</h1>
+            <h1 className="posts-title">{isMyPosts ? 'My posts' : 'Posts'}</h1>
             <ul className='posts__list'>
                 {data.map((post) => (
                     <PostsListItem isMyPosts={isMyPosts} imageUrl={post.imageUrl} key={post._id} id={post._id} title={post.title} views={post.views} text={post.text} createdAt={post.createdAt} author={post.author}/>
@@ -37,14 +36,14 @@ const PostsList = ({isMyPosts}) => {
     }else if(loading === 'loaded' && data !== null && data.length == 0){
         return (
             <>
-            <h1 className="posts-title">Posts</h1>
-            <div>Посты не найдены</div>
+            <h1 className="posts-title">{isMyPosts ? 'My posts' : 'Posts'}</h1>
+            <div className='posts-message'>Posts not found</div>
             </>
         );
     }else if(loading === 'loading'){
         return (
             <>
-            <h1 className="posts-title">Posts</h1>
+            <h1 className="posts-title">{isMyPosts ? 'My posts' : 'Posts'}</h1>
             <p>loading</p>
             </>
         );
