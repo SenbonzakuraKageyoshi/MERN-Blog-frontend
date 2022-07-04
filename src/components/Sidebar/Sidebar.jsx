@@ -12,7 +12,7 @@ const Sidebar = () => {
         return (
             <aside className="sidebar">
                 <Link to="/profile" className="profile-link">
-                    <img src={UserImg} alt="" className="user-img" width={40} height={40}/>
+                    <img src={`http://localhost:5000${data.imageUrl}`} alt="" className="user-img" width={40} height={40}/>
                     <h1 className="user-name">{data.name}</h1>
                 </Link>
                 <nav className="sidebar-nav">

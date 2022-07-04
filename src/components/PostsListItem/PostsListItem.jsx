@@ -16,9 +16,14 @@ const PostsListItem = ({id, title, text, createdAt, author, views, isMyPosts, im
 
     return (
         <li className="posts__list-item">
+            {imageUrl
+            ?
             <div className="post-img">
             <img src={`http://localhost:5000${imageUrl}`} alt="" className="post-preview" />
             </div>
+            :
+            null
+            }
             <Link to={`/posts/${id}`} className="posts__list-item-title">{title}</Link>
             <p className="posts__list-item-text">{text}</p>
             <div className="posts__list-item__info">

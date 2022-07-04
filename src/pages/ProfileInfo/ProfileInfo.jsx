@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { logout } from '../../redux/auth/auth';
 import { useDispatch } from 'react-redux';
-import UserImg from '../../images/profile/avatar.png';
 import './profile.css';
 
 const ProfileInfo = () => {
@@ -18,7 +17,7 @@ const ProfileInfo = () => {
         return (
             <>
             <div className="user-info">
-                <img src={UserImg} alt="" className="user-img-big" width={200} height={200}/>
+                <img src={`http://localhost:5000${data.imageUrl}`} alt="" className="user-img-big" width={200} height={200}/>
                 <h1 className="user-name">{data.name}</h1>
                 <h2 className="user-email">{data.email}</h2>
             </div>

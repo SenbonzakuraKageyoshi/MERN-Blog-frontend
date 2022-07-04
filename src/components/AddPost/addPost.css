@@ -14,7 +14,7 @@
     align-items: center;
     width: 340px;
     min-height: 300px;
-    border: 3px solid #5FA5F8;
+    border: 3px solid rgba(236,119,0,1);
     border-radius: 23px;    
 }
 
@@ -28,7 +28,7 @@
     font-size: 18px;
     color: #fff;
     text-decoration: none;
-    background: #5FA5F8;
+    background: rgba(236,119,0,1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,7 +44,7 @@
     font-size: 18px;
     color: #fff;
     text-decoration: none;
-    background: #5FA5F8;
+    background: rgba(236,119,0,1);
     display: flex;
     align-items: center;
     justify-content: center;

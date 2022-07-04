@@ -18,6 +18,11 @@
     margin-top: 10px;
 }
 
+.user-img-big{
+    border-radius: 50%;
+    margin-bottom: 40px;
+}
+
 .logout{
     margin-top: 20px;
     width: 120px;
